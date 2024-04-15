@@ -1,0 +1,20 @@
+{
+  "name": "frankenphp-silverstripe-demo",
+  "version": "0.0.1",
+  "author": "Cameron Bryers",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.12",
+    "dotenv": "^16.4.5",
+    "laravel-mix": "^6.0.49",
+    "tailwindcss": "^3.4.3"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
+  },
+  "scripts": {
+    "dev": "npx mix",
+    "watch": "npx mix watch",
+    "build": "npx mix --production"
+  }
+}

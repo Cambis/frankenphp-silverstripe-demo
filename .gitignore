@@ -1,0 +1,16 @@
+# Project specific
+.env
+
+# Dependencies
+node_modules
+vendor
+
+# Silverstripe
+_resources
+public/_resources
+.graphql-generated
+public/_graphql
+silverstripe-cache/
+
+# Dist
+themes/app/dist

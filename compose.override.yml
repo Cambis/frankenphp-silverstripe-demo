@@ -1,0 +1,22 @@
+services:
+  web:
+    volumes:
+      - .:/app
+    build:
+      context: .
+      dockerfile: ./docker/tukutuku/Dockerfile
+      target: dev
+      args:
+        - NODE_VERSION=lts
+        - PHP_VERSION=8.3
+    image: cambis/frankenphp-silverstripe-demo/web:php8.3nodelts
+    environment:
+      - SS_TRUSTED_PROXY_IPS=*
+      - SS_ENVIRONMENT_TYPE=dev
+      - SS_DATABASE_SERVER=mysql
+      - SS_DATABASE_NAME=SS_mysite
+      - SS_DATABASE_USERNAME=root
+      - SS_DATABASE_PASSWORD=
+      - SS_DEFAULT_ADMIN_USERNAME=admin
+      - SS_DEFAULT_ADMIN_PASSWORD=password
+      - SS_BASE_URL=${SS_BASE_URL:-https://localhost}

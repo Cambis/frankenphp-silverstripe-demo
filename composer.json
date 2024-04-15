@@ -1,0 +1,54 @@
+{
+    "name": "cambis/frankenphp-silverstripe-demo",
+    "description": "FrankenPHP Silverstripe",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Cameron Bryers"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "silverstripe/login-forms": "^5.2",
+        "silverstripe/recipe-cms": "^5.2"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.42",
+        "phpunit/phpunit": "^9.6",
+        "squizlabs/php_codesniffer": "^3.9"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "ergebnis/composer-normalize": true,
+            "silverstripe/recipe-plugin": true,
+            "silverstripe/vendor-plugin": true
+        },
+        "process-timeout": 600
+    },
+    "extra": {
+        "expose": [
+            "themes/app/dist"
+        ],
+        "project-files-installed": [
+            ".htaccess",
+            "app/.htaccess",
+            "app/_config/mimevalidator.yml",
+            "app/_config/mysite.yml",
+            "app/src/Page.php",
+            "app/src/PageController.php"
+        ],
+        "public-files-installed": [
+            ".htaccess",
+            "index.php",
+            "web.config"
+        ]
+    }
+}

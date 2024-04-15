@@ -1,0 +1,8 @@
+---
+Name: app_theme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - '$public'
+    - 'app'
+    - '$default'

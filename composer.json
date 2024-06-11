@@ -9,6 +9,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "cambis/silverstripe-inertia": "dev-feature/updates-06-24",
         "silverstripe/login-forms": "^5.2",
         "silverstripe/recipe-cms": "^5.2"
     },
@@ -31,7 +32,8 @@
             "silverstripe/recipe-plugin": true,
             "silverstripe/vendor-plugin": true
         },
-        "process-timeout": 600
+        "process-timeout": 600,
+        "sort-packages": true
     },
     "extra": {
         "expose": [

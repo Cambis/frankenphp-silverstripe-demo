@@ -1,0 +1,15 @@
+---
+Name: app_inertia
+After:
+  - requestprocessors
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Control\Director:
+    properties:
+      Middlewares:
+        InertiaMiddleware: '%$Cambis\Inertia\Control\Middleware\InertiaMiddleware'
+
+PageController:
+  extensions:
+    - Cambis\Inertia\Extension\InertiaPageControllerExtension
+    - App\Extension\MenuBarExtension

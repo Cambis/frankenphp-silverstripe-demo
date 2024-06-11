@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a35a248c36021f7be1ab46da6601b8a8",
+    "content-hash": "468e5862ec373b533ccc08e0839ab5a3",
     "packages": [
+        {
+            "name": "cambis/silverstripe-inertia",
+            "version": "dev-feature/updates-06-24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cambis/silverstripe-inertia.git",
+                "reference": "a921a6b71934dde7a04f7d6e5a82521e7592e021"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cambis/silverstripe-inertia/zipball/a921a6b71934dde7a04f7d6e5a82521e7592e021",
+                "reference": "a921a6b71934dde7a04f7d6e5a82521e7592e021",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.7",
+                "php": "^8.3",
+                "silverstripe/framework": "^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.42",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^1.11",
+                "phpstan/phpstan-phpunit": "^1.4",
+                "phpstan/phpstan-strict-rules": "^1.6",
+                "phpunit/phpunit": "^9.5",
+                "rector/rector": "^1.1",
+                "slevomat/coding-standard": "^8.15",
+                "symplify/easy-coding-standard": "^12.2"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Cambis\\Inertia\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Inertia.js adapater for Silverstripe.",
+            "keywords": [
+                "inertia",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/Cambis/silverstripe-inertia/issues",
+                "source": "https://github.com/Cambis/silverstripe-inertia/tree/feature/updates-06-24"
+            },
+            "time": "2024-06-10T07:56:49+00:00"
+        },
         {
             "name": "composer/ca-bundle",
             "version": "1.5.0",
@@ -6071,12 +6123,12 @@
             "version": "v5.2.13",
             "source": {
                 "type": "git",
-                "url": "https://github.com/justinrainbow/json-schema.git",
+                "url": "https://github.com/jsonrainbow/json-schema.git",
                 "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/fbbe7e5d79f618997bc3332a6f49246036c45793",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/fbbe7e5d79f618997bc3332a6f49246036c45793",
                 "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793",
                 "shasum": ""
             },
@@ -7825,7 +7877,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "cambis/silverstripe-inertia": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

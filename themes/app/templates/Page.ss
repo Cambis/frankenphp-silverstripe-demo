@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {$MetaTags(false)}
 
+    {$InertiaHead($PageData)}
+
     <% require themedCSS("dist/app") %>
 </head>
     <body data-pagetype="{$ClassName}">
-        {$Layout}
+        {$InertiaBody($PageData)}
     </body>
+
+    <% require themedJavascript("dist/app") %>
 </html>

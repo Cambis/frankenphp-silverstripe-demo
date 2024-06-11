@@ -1,0 +1,2200 @@
+yarn run v1.22.22
+$ npx mix --production
+[0m {
+  "context": "/app",
+  "mode": "production",
+  "infrastructureLogging": {},
+  "entry": {
+    "/app": [
+      "/app/themes/app/src/js/app.tsx",
+      "/app/themes/app/src/css/app.css"
+    ]
+  },
+  "output": {
+    "hashFunction": "xxhash64",
+    "path": "/app/themes/app/dist",
+    "filename": "[name].js",
+    "publicPath": "/"
+  },
+  "module": {
+    "rules": [
+      {
+        "test": "/\\.html$/",
+        "resourceQuery": {
+          "not": [
+            "/\\?vue/i"
+          ]
+        },
+        "use": [
+          {
+            "loader": "/app/node_modules/html-loader/dist/cjs.js"
+          }
+        ]
+      },
+      {
+        "test": "/(\\.(png|jpe?g|gif|webp|avif)$|^((?!font).)*\\.svg$)/",
+        "use": [
+          {
+            "loader": "/app/node_modules/file-loader/dist/cjs.js",
+            "options": {
+              "publicPath": "/_resources/themes/app/dist/"
+            }
+          },
+          {
+            "loader": "/app/node_modules/img-loader/index.js",
+            "options": {
+              "enabled": true,
+              "gifsicle": {},
+              "mozjpeg": {},
+              "optipng": {},
+              "svgo": {}
+            }
+          }
+        ]
+      },
+      {
+        "test": "/(\\.(woff2?|ttf|eot|otf)$|font.*\\.svg$)/",
+        "use": [
+          {
+            "loader": "/app/node_modules/file-loader/dist/cjs.js",
+            "options": {
+              "publicPath": "/_resources/themes/app/dist/"
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.(cur|ani)$/",
+        "use": [
+          {
+            "loader": "/app/node_modules/file-loader/dist/cjs.js",
+            "options": {
+              "publicPath": "/_resources/themes/app/dist/"
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.(cjs|mjs|jsx?|tsx?)$/",
+        "exclude": "/(node_modules|bower_components)/",
+        "use": [
+          {
+            "loader": "/app/node_modules/babel-loader/lib/index.js",
+            "options": {
+              "cacheDirectory": true,
+              "presets": [
+                {
+                  "options": {
+                    "modules": false,
+                    "forceAllTransforms": true
+                  },
+                  "dirname": "/app",
+                  "file": {
+                    "request": "@babel/preset-env",
+                    "resolved": "/app/node_modules/@babel/preset-env/lib/index.js"
+                  }
+                },
+                {
+                  "options": {
+                    "runtime": "automatic"
+                  },
+                  "dirname": "/app",
+                  "file": {
+                    "request": "@babel/preset-react",
+                    "resolved": "/app/node_modules/@babel/preset-react/lib/index.js"
+                  }
+                }
+              ],
+              "plugins": [
+                {
+                  "dirname": "/app",
+                  "file": {
+                    "request": "@babel/plugin-syntax-dynamic-import",
+                    "resolved": "/app/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js"
+                  }
+                },
+                {
+                  "dirname": "/app",
+                  "file": {
+                    "request": "@babel/plugin-proposal-object-rest-spread",
+                    "resolved": "/app/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js"
+                  }
+                },
+                {
+                  "options": {
+                    "helpers": false
+                  },
+                  "dirname": "/app",
+                  "file": {
+                    "request": "@babel/plugin-transform-runtime",
+                    "resolved": "/app/node_modules/@babel/plugin-transform-runtime/lib/index.js"
+                  }
+                }
+              ],
+              "assumptions": {},
+              "targets": {},
+              "cloneInputAst": true,
+              "babelrc": true,
+              "configFile": true,
+              "browserslistConfigFile": false,
+              "passPerPreset": false,
+              "envName": "production",
+              "cwd": "/app",
+              "root": "/app",
+              "rootMode": "root",
+              "babelrcRoots": [
+                ".",
+                "/app"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.tsx?$/",
+        "loader": "/app/node_modules/ts-loader/index.js",
+        "exclude": "/node_modules/",
+        "options": {
+          "appendTsSuffixTo": [
+            "/\\.vue$/"
+          ]
+        }
+      },
+      {
+        "test": "/app/themes/app/src/css/app.css",
+        "use": [
+          {
+            "loader": "/app/node_modules/mini-css-extract-plugin/dist/loader.js",
+            "options": {
+              "esModule": true
+            }
+          },
+          {
+            "loader": "/app/node_modules/css-loader/dist/cjs.js",
+            "options": {
+              "sourceMap": false,
+              "importLoaders": 1
+            }
+          },
+          {
+            "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+            "options": {
+              "sourceMap": false,
+              "postcssOptions": {
+                "plugins": [
+                  null,
+                  {
+                    "options": {},
+                    "postcssPlugin": "autoprefixer"
+                  },
+                  {
+                    "version": "8.4.38",
+                    "plugins": [
+                      {
+                        "postcssPlugin": "postcss-discard-comments"
+                      },
+                      {
+                        "postcssPlugin": "postcss-minify-gradients"
+                      },
+                      {
+                        "postcssPlugin": "postcss-reduce-initial"
+                      },
+                      {
+                        "postcssPlugin": "postcss-svgo"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-display-values"
+                      },
+                      {
+                        "postcssPlugin": "postcss-reduce-transforms"
+                      },
+                      {
+                        "postcssPlugin": "postcss-colormin"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-timing-functions"
+                      },
+                      {
+                        "postcssPlugin": "postcss-calc"
+                      },
+                      {
+                        "postcssPlugin": "postcss-convert-values"
+                      },
+                      {
+                        "postcssPlugin": "postcss-ordered-values"
+                      },
+                      {
+                        "postcssPlugin": "postcss-minify-selectors"
+                      },
+                      {
+                        "postcssPlugin": "postcss-minify-params"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-charset"
+                      },
+                      {
+                        "postcssPlugin": "postcss-discard-overridden"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-string"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-unicode"
+                      },
+                      {
+                        "postcssPlugin": "postcss-minify-font-values"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-url"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-repeat-style"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-positions"
+                      },
+                      {
+                        "postcssPlugin": "postcss-normalize-whitespace"
+                      },
+                      {
+                        "postcssPlugin": "postcss-merge-longhand"
+                      },
+                      {
+                        "postcssPlugin": "postcss-discard-duplicates"
+                      },
+                      {
+                        "postcssPlugin": "postcss-merge-rules"
+                      },
+                      {
+                        "postcssPlugin": "postcss-discard-empty"
+                      },
+                      {
+                        "postcssPlugin": "postcss-unique-selectors"
+                      },
+                      {
+                        "postcssPlugin": "css-declaration-sorter"
+                      },
+                      {
+                        "postcssPlugin": "cssnano-util-raw-cache"
+                      }
+                    ]
+                  }
+                ],
+                "hideNothingWarning": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "test": "/\\.p?css$/",
+        "exclude": [
+          "/app/themes/app/src/css/app.css"
+        ],
+        "oneOf": [
+          {
+            "resourceQuery": "/module/",
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "auto": true,
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "test": "/\\.scss$/",
+        "exclude": [],
+        "oneOf": [
+          {
+            "resourceQuery": "/module/",
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              {
+                "loader": "sass-loader",
+                "options": {
+                  "sassOptions": {
+                    "precision": 8,
+                    "outputStyle": "expanded"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "auto": true,
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "test": "/\\.sass$/",
+        "exclude": [],
+        "oneOf": [
+          {
+            "resourceQuery": "/module/",
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              {
+                "loader": "sass-loader",
+                "options": {
+                  "sassOptions": {
+                    "precision": 8,
+                    "outputStyle": "expanded",
+                    "indentedSyntax": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "auto": true,
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "test": "/\\.less$/",
+        "exclude": [],
+        "oneOf": [
+          {
+            "resourceQuery": "/module/",
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              {
+                "loader": "less-loader"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "auto": true,
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "test": "/\\.styl(us)?$/",
+        "exclude": [],
+        "oneOf": [
+          {
+            "resourceQuery": "/module/",
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              {
+                "loader": "stylus-loader"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "/app/node_modules/style-loader/dist/cjs.js"
+              },
+              {
+                "loader": "/app/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local",
+                    "auto": true,
+                    "localIdentName": "[hash:base64]"
+                  }
+                }
+              },
+              {
+                "loader": "/app/node_modules/postcss-loader/dist/cjs.js",
+                "options": {
+                  "postcssOptions": {
+                    "plugins": [
+                      {
+                        "postcssPlugin": "autoprefixer"
+                      },
+                      {
+                        "version": "8.4.38",
+                        "plugins": [
+                          {
+                            "postcssPlugin": "postcss-discard-comments"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-gradients"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-initial"
+                          },
+                          {
+                            "postcssPlugin": "postcss-svgo"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-display-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-reduce-transforms"
+                          },
+                          {
+                            "postcssPlugin": "postcss-colormin"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-timing-functions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-calc"
+                          },
+                          {
+                            "postcssPlugin": "postcss-convert-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-ordered-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-selectors"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-params"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-charset"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-overridden"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-string"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-unicode"
+                          },
+                          {
+                            "postcssPlugin": "postcss-minify-font-values"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-url"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-repeat-style"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-positions"
+                          },
+                          {
+                            "postcssPlugin": "postcss-normalize-whitespace"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-longhand"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-duplicates"
+                          },
+                          {
+                            "postcssPlugin": "postcss-merge-rules"
+                          },
+                          {
+                            "postcssPlugin": "postcss-discard-empty"
+                          },
+                          {
+                            "postcssPlugin": "postcss-unique-selectors"
+                          },
+                          {
+                            "postcssPlugin": "css-declaration-sorter"
+                          },
+                          {
+                            "postcssPlugin": "cssnano-util-raw-cache"
+                          }
+                        ]
+                      }
+                    ],
+                    "hideNothingWarning": true
+                  }
+                }
+              },
+              null
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "envPath": "/app/.env",
+      "additionalEnv": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "mix": {
+        "config": {
+          "production": true,
+          "hmr": false,
+          "hmrOptions": {
+            "https": false,
+            "host": "localhost",
+            "port": "8080"
+          },
+          "postCss": [],
+          "publicPath": "themes/app/dist",
+          "runtimeChunkPath": null,
+          "notifications": {
+            "onSuccess": true,
+            "onFailure": true
+          },
+          "sourcemaps": false,
+          "resourceRoot": "/_resources/themes/app/dist/",
+          "fileLoaderDirs": {
+            "images": "images",
+            "fonts": "fonts"
+          },
+          "assetModules": false,
+          "assetDirs": {
+            "images": "images",
+            "fonts": "fonts"
+          },
+          "processCssUrls": true,
+          "terser": {
+            "parallel": true,
+            "terserOptions": {
+              "compress": true,
+              "output": {
+                "comments": false
+              }
+            }
+          },
+          "cssNano": {},
+          "cleanCss": {},
+          "webpackConfig": {},
+          "babelConfig": {
+            "presets": [
+              [
+                "@babel/preset-react",
+                null
+              ]
+            ],
+            "plugins": []
+          },
+          "clearConsole": true,
+          "legacyNodePolyfills": true,
+          "vue": {},
+          "manifest": "mix-manifest.json",
+          "cssModuleIdentifier": "[hash:base64]"
+        },
+        "chunks": {
+          "chunks": {
+            "styles-": {
+              "name": "app",
+              "chunks": "all",
+              "enforce": true,
+              "type": "css/mini-extract"
+            }
+          },
+          "entry": null,
+          "runtime": false
+        },
+        "components": {
+          "components": {
+            "cssWebpackConfig": {
+              "passive": true,
+              "requiresReload": true,
+              "caller": "cssWebpackConfig",
+              "activated": true
+            },
+            "notifications": {
+              "passive": true,
+              "requiresReload": false,
+              "caller": "notifications",
+              "activated": true
+            },
+            "purifyCss": {
+              "passive": true,
+              "requiresReload": false,
+              "caller": "purifyCss",
+              "activated": true
+            },
+            "legacyNodePolyfills": {
+              "passive": true,
+              "requiresReload": false,
+              "caller": "legacyNodePolyfills",
+              "activated": true
+            },
+            "setPublicPath": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "setPublicPath",
+              "activated": true
+            },
+            "setResourceRoot": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "setResourceRoot",
+              "activated": true
+            },
+            "ts": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "ts",
+              "toCompile": [
+                {
+                  "entry": [
+                    {
+                      "absolutePath": "/app/themes/app/src/js/app.tsx",
+                      "filePath": "themes/app/src/js/app.tsx",
+                      "segments": {
+                        "path": "themes/app/src/js/app.tsx",
+                        "absolutePath": "/app/themes/app/src/js/app.tsx",
+                        "pathWithoutExt": "/app/themes/app/src/js/app",
+                        "isDir": false,
+                        "isFile": true,
+                        "name": "app",
+                        "ext": ".tsx",
+                        "file": "app.tsx",
+                        "base": "/app/themes/app/src/js"
+                      }
+                    }
+                  ],
+                  "output": {
+                    "absolutePath": "/",
+                    "filePath": "..",
+                    "segments": {
+                      "path": "..",
+                      "absolutePath": "/",
+                      "pathWithoutExt": "/",
+                      "isDir": true,
+                      "isFile": false,
+                      "name": "",
+                      "ext": "",
+                      "file": "",
+                      "base": "/"
+                    }
+                  }
+                }
+              ],
+              "options": {},
+              "activated": true
+            },
+            "react": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "react",
+              "options": {
+                "extractStyles": false
+              },
+              "activated": true
+            },
+            "postCss": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "postCss",
+              "details": [
+                {
+                  "type": "postCss",
+                  "src": {
+                    "absolutePath": "/app/themes/app/src/css/app.css",
+                    "filePath": "themes/app/src/css/app.css",
+                    "segments": {
+                      "path": "themes/app/src/css/app.css",
+                      "absolutePath": "/app/themes/app/src/css/app.css",
+                      "pathWithoutExt": "/app/themes/app/src/css/app",
+                      "isDir": false,
+                      "isFile": true,
+                      "name": "app",
+                      "ext": ".css",
+                      "file": "app.css",
+                      "base": "/app/themes/app/src/css"
+                    }
+                  },
+                  "output": {
+                    "absolutePath": "/app.css",
+                    "filePath": "../app.css",
+                    "segments": {
+                      "path": "../app.css",
+                      "absolutePath": "/app.css",
+                      "pathWithoutExt": "/app",
+                      "isDir": false,
+                      "isFile": true,
+                      "name": "app",
+                      "ext": ".css",
+                      "file": "app.css",
+                      "base": "/"
+                    }
+                  },
+                  "pluginOptions": {},
+                  "postCssPlugins": [
+                    null
+                  ]
+                }
+              ],
+              "activated": true
+            },
+            "webpackConfig": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "webpackConfig",
+              "activated": true
+            },
+            "override": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "override",
+              "activated": true
+            },
+            "version": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "version",
+              "activated": true
+            },
+            "dumpWebpackConfig": {
+              "passive": false,
+              "requiresReload": false,
+              "caller": "dumpWebpackConfig",
+              "activated": true
+            }
+          }
+        },
+        "dispatcher": {
+          "events": {
+            "init": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "internal:gather-dependencies": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "configReadyForUser": [
+              null,
+              null
+            ],
+            "loading-entry": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "loading-rules": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "loading-plugins": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "configReady": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          }
+        },
+        "manifest": {
+          "manifest": {},
+          "name": "mix-manifest.json"
+        },
+        "paths": {
+          "rootPath": "/app"
+        },
+        "registrar": {
+          "components": {}
+        },
+        "webpackConfig": {},
+        "hot": {},
+        "resolver": {
+          "aliases": {}
+        },
+        "dependencies": {
+          "items": [
+            {
+              "package": "ts-loader",
+              "name": "ts-loader"
+            },
+            {
+              "package": "typescript",
+              "name": "typescript"
+            },
+            {
+              "package": "postcss@^8.3.1",
+              "name": "postcss"
+            },
+            {
+              "package": "@babel/preset-react",
+              "name": "@babel/preset-react"
+            },
+            {
+              "package": "process",
+              "name": "process"
+            },
+            {
+              "package": "buffer",
+              "name": "buffer"
+            }
+          ],
+          "requiresReload": true
+        },
+        "tasks": [
+          {
+            "data": {
+              "files": []
+            },
+            "assets": [],
+            "files": {
+              "files": []
+            },
+            "isBeingWatched": false
+          }
+        ],
+        "booted": true,
+        "bundlingJavaScript": true,
+        "initialized": true,
+        "globalStyles": null,
+        "extractingStyles": false
+      }
+    },
+    {},
+    {},
+    {
+      "options": {
+        "clearConsole": true,
+        "showRelated": true
+      },
+      "patched": false
+    },
+    {
+      "profile": false,
+      "modulesCount": 5000,
+      "dependenciesCount": 10000,
+      "showEntries": true,
+      "showModules": true,
+      "showDependencies": true,
+      "showActiveModules": true,
+      "options": {
+        "name": "Mix",
+        "color": "green",
+        "reporters": [
+          "basic"
+        ],
+        "reporter": null
+      },
+      "reporters": [
+        {}
+      ]
+    },
+    {
+      "_sortedModulesCache": {},
+      "options": {
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "experimentalUseImportModule": false,
+        "chunkFilename": "[name].css"
+      },
+      "runtimeOptions": {
+        "linkType": "text/css"
+      }
+    },
+    {
+      "options": {
+        "appID": "Laravel Mix",
+        "title": "Laravel Mix",
+        "alwaysNotify": true,
+        "timeout": false,
+        "hint": "int:transient:1",
+        "contentImage": "/app/node_modules/laravel-mix/icons/laravel.png"
+      },
+      "lastBuildSucceeded": false,
+      "isFirstBuild": true
+    },
+    {
+      "definitions": {
+        "Buffer": [
+          "buffer",
+          "Buffer"
+        ],
+        "process": "process/browser.js"
+      }
+    },
+    {
+      "key": "ESLintWebpackPlugin",
+      "options": {
+        "cache": true,
+        "cacheLocation": "node_modules/.cache/eslint-webpack-plugin/.eslintcache",
+        "extensions": [
+          "js",
+          "jsx",
+          "ts",
+          "tsx"
+        ],
+        "emitError": true,
+        "emitWarning": true,
+        "failOnError": true,
+        "resourceQueryExclude": [],
+        "configType": "flat",
+        "eslintPath": "eslint/use-at-your-own-risk"
+      }
+    },
+    {
+      "options": {}
+    }
+  ],
+  "resolve": {
+    "extensions": [
+      "*",
+      ".wasm",
+      ".mjs",
+      ".js",
+      ".jsx",
+      ".json",
+      ".ts",
+      ".tsx"
+    ],
+    "roots": [
+      "/app/themes/app/dist"
+    ],
+    "plugins": [
+      {
+        "source": "described-resolve",
+        "target": "resolve",
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ],
+        "referenceMatchMap": {},
+        "log": {},
+        "absoluteBaseUrl": "/app"
+      }
+    ]
+  },
+  "stats": {
+    "preset": "errors-warnings",
+    "performance": true
+  },
+  "performance": {
+    "hints": false
+  },
+  "optimization": {
+    "providedExports": true,
+    "sideEffects": true,
+    "usedExports": true,
+    "minimizer": [
+      {
+        "options": {
+          "test": "/\\.[cm]?js(\\?.*)?$/i",
+          "extractComments": true,
+          "parallel": true,
+          "minimizer": {}
+        }
+      }
+    ],
+    "splitChunks": {
+      "cacheGroups": {
+        "default": false,
+        "defaultVendors": false,
+        "styles-": {
+          "name": "app",
+          "chunks": "all",
+          "enforce": true,
+          "type": "css/mini-extract"
+        }
+      }
+    }
+  },
+  "devtool": false,
+  "devServer": {
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    },
+    "static": "/app/themes/app/dist",
+    "historyApiFallback": true,
+    "compress": true,
+    "allowedHosts": "all"
+  },
+  "watchOptions": {
+    "ignored": "/node_modules/"
+  }
+}
+[0m 
+ℹ Compiling Mix
+
+[1;1H[0J
+                         
+   Laravel Mix v6.0.49   
+                         
+
+✔ Compiled Successfully in 2666ms
+┌───────────────────────────────────┬───────────┐
+│                              File │ Size      │
+├───────────────────────────────────┼───────────┤
+│                           /app.js │ 146 KiB   │
+│               /app.js.LICENSE.txt │ 971 bytes │
+│                           app.css │ 22.9 KiB  │
+└───────────────────────────────────┴───────────┘
+✔ Mix: Compiled successfully in 2.71s
+WARNING in ./themes/app/src/js/app.tsx 43:26-36
+Critical dependency: the request of a dependency is an expression
+
+webpack compiled with 1 warning
+Done in 4.72s.

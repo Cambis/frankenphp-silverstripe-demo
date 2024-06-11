@@ -9,7 +9,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "cambis/silverstripe-inertia": "dev-feature/updates-06-24",
+        "cambis/silverstripe-inertia": "^0.4.1",
         "silverstripe/login-forms": "^5.2",
         "silverstripe/recipe-cms": "^5.2"
     },
